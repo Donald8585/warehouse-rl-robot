@@ -1,0 +1,18 @@
+# Core RL and ML libraries
+gymnasium>=0.29.0
+numpy>=1.24.0
+stable-baselines3>=2.1.0
+
+# Video generation
+imageio>=2.34.0
+imageio-ffmpeg>=0.4.9
+
+# Visualization and monitoring
+tensorboard>=2.15.0
+
+# Web demo (optional, add when ready)
+# gradio>=4.0.0
+
+# Development tools (optional)
+# jupyter>=1.0.0
+# matplotlib>=3.7.0
