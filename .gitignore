@@ -4,31 +4,14 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
-venv/
-.venv/
-ENV/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
 *.egg-info/
-.installed.cfg
-*.egg
+dist/
+build/
 
 # Virtual environments
-.env
-.venv
-env/
 venv/
+env/
+ENV/
 
 # IDEs
 .vscode/
@@ -37,19 +20,35 @@ venv/
 *.swo
 *~
 
-# Jupyter
-.ipynb_checkpoints
-*.ipynb
+# Jupyter Notebooks
+.ipynb_checkpoints/
 
-# Model files and logs
-models/*.zip
+# Model files (too large for git)
+*.zip
+models/
+checkpoints/
+
+# Training logs
 tb_logs/
-*.log
+logs/
 
-# Videos (large files)
-web_demo/videos/*.mp4
-web_demo/videos/*.avi
+# Videos (too large, can upload separately)
+videos/
+*.mp4
+*.avi
+*.gif
 
-# OS
+# Data files
+*.pkl
+*.h5
+*.pth
+
+# OS files
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.log
+*.bak
