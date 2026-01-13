@@ -68,3 +68,10 @@ checkpoints/
 models/
 data/
 logs/
+venv311/
+venv/
+env/
+.venv/
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
