@@ -52,3 +52,7 @@ desktop.ini
 *.tmp
 *.log
 *.bak
+*.pth
+*.h5
+data/
+venv/
