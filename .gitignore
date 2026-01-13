@@ -56,3 +56,7 @@ desktop.ini
 *.h5
 data/
 venv/
+*.pth
+*.h5
+data/
+venv/
