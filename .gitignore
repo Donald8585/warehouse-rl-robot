@@ -60,3 +60,11 @@ venv/
 *.h5
 data/
 venv/
+*.pth
+*.ckpt
+*.pkl
+*.zip
+checkpoints/
+models/
+data/
+logs/
