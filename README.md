@@ -69,68 +69,59 @@ Deep Reinforcement Learning agent using **DQN with Hindsight Experience Replay (
 
 ```
 warehouse-rl-robot/
-├── src/
-│   ├── environment.py           # Custom Gymnasium environment (20×20 grid)
-│   ├── train_curriculum.py      # DQN+HER curriculum learning trainer
-│   ├── compare_agents.py        # Side-by-side BFS vs RL comparison
-│   └── utils.py                 # BFS pathfinding, video generation
+├── rl-warehouse.ipynb          # 🎓 Main Kaggle notebook (training + evaluation)
 ├── web_demo/
-│   └── app.py                   # Streamlit web interface
-├── videos/                      # 30 comparison videos (5 runs × 6 levels)
-│   ├── tutorial_run01_BFSvsRL.mp4
-│   ├── easy_run01_BFSvsRL.mp4
-│   └── ...
-├── models/
-│   └── dqn_warehouse_final.zip  # Trained DQN+HER model
+│   ├── app.py                  # Streamlit web interface
+│   └── videos/                 # 30 comparison videos (5 runs × 6 levels)
+│       ├── tutorial_run01_BFSvsRL.mp4
+│       ├── easy_run01_BFSvsRL.mp4
+│       └── ...
 ├── requirements.txt
 └── README.md
 ```
+
+**Workflow:**
+1. **Train on Kaggle** → `rl-warehouse.ipynb` (DQN+HER curriculum learning)
+2. **Generate videos** → Output 30 comparison videos
+3. **Deploy to HF Spaces** → `web_demo/` folder with Streamlit UI
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. Installation
+### 1. View Live Demo
 
-```bash
-git clone https://github.com/Donald8585/warehouse-rl-robot.git
-cd warehouse-rl-robot
-pip install -r requirements.txt
+👉 **[Try it now on HuggingFace Spaces](https://huggingface.co/spaces/Donald8585/warehouse-robot-navigation)** 👈
+
+### 2. Train Your Own Agent (Kaggle)
+
+**Open the notebook:**
+```
+rl-warehouse.ipynb
 ```
 
-### 2. Run Web Demo Locally
+**What it does:**
+- 🏗️ Defines custom Gymnasium environment (20×20 grid)
+- 🧠 Trains DQN+HER agent with curriculum learning
+- 📹 Generates side-by-side BFS vs RL comparison videos
+- 💾 Outputs 30 videos for web demo
+
+**Training time:** ~1 hour on Kaggle T4 GPU (free tier)
+
+### 3. Run Web Demo Locally
 
 ```bash
-streamlit run web_demo/app.py
+cd web_demo
+streamlit run app.py
 ```
 
-### 3. Train Your Own Agent
-
-```bash
-cd src
-python train_curriculum.py
-```
-
-**Training Configuration:**
-- Stage 1: Easy (100k steps)
-- Stage 2: Medium (100k steps)
-- Stage 3: Hard (100k steps)
-- Total: 300k steps (~1 hour on Kaggle T4 GPU)
-
-### 4. Generate Comparison Videos
-
-```bash
-cd src
-python compare_agents.py
-```
-
-Output: MP4 videos saved to `videos/` folder with side-by-side BFS (blue) vs RL (green) visualization.
+Select difficulty level and run number to watch BFS vs RL comparisons!
 
 ---
 
 ## 🎮 Environment Details
 
-### State Space (18 features)
+### State Space (4 features)
 - Agent position: `(x, y)` coordinates
 - Goal position: `(goal_x, goal_y)` coordinates
 - Grid size: 20×20 cells
@@ -181,9 +172,9 @@ HER enables learning from failed episodes by treating achieved states as alterna
 
 ### 2. Curriculum Learning
 Progressive training across difficulty levels prevents catastrophic forgetting:
-- **Stage 1**: Master easy navigation (0-10% obstacles)
-- **Stage 2**: Handle moderate complexity (25% obstacles)
-- **Stage 3**: Attempt high difficulty (40% obstacles)
+- **Stage 1**: Master easy navigation (0-10% obstacles) - 100k steps
+- **Stage 2**: Handle moderate complexity (25% obstacles) - 100k steps
+- **Stage 3**: Attempt high difficulty (40% obstacles) - 100k steps
 
 ### 3. Path Validation
 ```python
