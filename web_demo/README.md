@@ -3,8 +3,8 @@ title: Warehouse Robot RL Navigation
 emoji: 🤖
 colorFrom: blue
 colorTo: purple
-sdk: gradio
-sdk_version: 5.0.0
+sdk: streamlit
+sdk_version: 1.40.1
 app_file: app.py
 pinned: false
 license: mit
@@ -75,7 +75,7 @@ This demo showcases a **Deep Q-Network (DQN) agent with Hindsight Experience Rep
 - **Stable-Baselines3**: DQN + HER implementation
 - **NumPy**: State/reward processing
 - **imageio**: Video generation
-- **Gradio**: Interactive web interface
+- **Streamlit**: Interactive web interface
 
 ## 🔗 Links
 
