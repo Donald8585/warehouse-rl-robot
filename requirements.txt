@@ -1,6 +1,1 @@
-gradio>=5.0.0
-audioop-lts
-huggingface_hub>=0.20.0,<1.0.0
-numpy>=1.24.0
-imageio>=2.34.0
-imageio-ffmpeg>=0.5.1
+streamlit
